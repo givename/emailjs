@@ -88,12 +88,27 @@ export class SMTPClient {
 	 */
 	public sendAsync<T extends Message | MessageHeaders>(msg: T) {
 		return new Promise<Message>((resolve, reject) => {
+			console.log(
+				`EMAILJS::INTERNAL::LOGGER - startSend; message: {${msg.text}}`
+			);
+
+			const time = Date.now();
+			const intervalLogger = setInterval(() => {
+				console.log(
+					`EMAILJS::INTERNAL::LOGGER - time: ${time - Date.now()}; message: {${
+						msg.text
+					}}`
+				);
+			}, 10000);
+
 			this.send(msg, (err, message) => {
 				if (err != null) {
+					clearInterval(intervalLogger);
 					reject(err);
 				} else {
 					// unfortunately, the conditional type doesn't reach here
 					// fortunately, we only return a `Message` when err is null, so this is safe
+					clearInterval(intervalLogger);
 					resolve(message as Message);
 				}
 			});
