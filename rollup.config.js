@@ -1,5 +1,5 @@
 import { builtinModules } from 'module';
-import typescript from '@rollup/plugin-typescript';
+import rollupTypescript from 'rollup-plugin-typescript2'
 
 export default {
 	input: 'email.ts',
@@ -10,6 +10,8 @@ export default {
 	},
 	external: builtinModules,
 	plugins: [
-		typescript({ removeComments: false, include: ['email.ts', 'smtp/*'] }),
+		rollupTypescript({ include: ['email.ts', 'smtp/*']  }),
 	],
 };
+
+// removeComments: false, include: ['email.ts', 'smtp/*'] 

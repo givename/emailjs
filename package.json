@@ -29,11 +29,14 @@
 		"eslint-plugin-prettier": "4.0.0",
 		"mailparser": "3.5.0",
 		"prettier": "2.6.2",
-		"rollup": "2.70.2",
-		"rollup-plugin-ts": "^3.0.2",
+		"rollup": "^3.6.0",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-eslint": "^7.0.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-typescript2": "^0.34.1",
 		"smtp-server": "3.11.0",
 		"ts-node": "10.7.0",
-		"tslib": "^2.4.0",
 		"typescript": "4.3.5"
 	},
 	"peerDependencies": {
